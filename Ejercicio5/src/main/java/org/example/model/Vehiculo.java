@@ -8,8 +8,15 @@ public class Vehiculo implements Cloneable{
     private int capacidad;
     private Tipo tipo;
 
+    public Vehiculo(String placa, String color, int capacidad, Tipo tipo) {
+        this.placa = placa;
+        this.color = color;
+        this.capacidad = capacidad;
+        this.tipo = tipo;
+    }
 
-    public static class VehiculoBuilder{
+
+    public static class Builder{
         private String placa;
         private String color;
         private int capacidad;
@@ -20,24 +27,24 @@ public class Vehiculo implements Cloneable{
          * @param placa
          * @return
          */
-        public VehiculoBuilder placa(String placa) {
+        public Builder placa(String placa) {
             this.placa = placa;
             return this;
         }
-        public VehiculoBuilder color(String color) {
+        public Builder color(String color) {
             this.color = color;
             return this;
         }
-        public VehiculoBuilder capacidad(int capacidad) {
+        public Builder capacidad(int capacidad) {
             this.capacidad = capacidad;
             return this;
         }
-        public VehiculoBuilder tipo(Tipo tipo) {
+        public Builder tipo(Tipo tipo) {
             this.tipo = tipo;
             return this;
         }
-        public VehiculoBuilder build(){
-            return new VehiculoBuilder();
+        public Builder build(){
+            return new Builder(this);
         }
     }
 
@@ -46,8 +53,8 @@ public class Vehiculo implements Cloneable{
      * @return
      * @throws CloneNotSupportedException
      */
-    public VehiculoBuilder clonar() throws CloneNotSupportedException {
-        return (VehiculoBuilder) super.clone();
+    public Vehiculo.Builder clonar() throws CloneNotSupportedException {
+        return (Builder) super.clone();
     }
 
 

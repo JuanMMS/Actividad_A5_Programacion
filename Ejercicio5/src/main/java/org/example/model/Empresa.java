@@ -16,7 +16,9 @@ public class Empresa {
 
 
 
-
+public void agregarVehiculo(Vehiculo.Builder vehiculo) {
+        this.listVehiculos.add(vehiculo);
+}
     //Getters y Setters
     public String getNombre() {
         return nombre;
